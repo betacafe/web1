@@ -1,38 +1,54 @@
-// Función para abrir el modal con la información del producto
 function openModal(product) {
-    const modal = document.getElementById('product-modal');
+    const modal = document.getElementById('modal');
     const title = document.getElementById('modal-title');
     const description = document.getElementById('modal-description');
-    const grainDetails = document.getElementById('modal-grain-details');
+    const grainDetails = document.getElementById('modal-grain');
     const roast = document.getElementById('modal-roast');
     const rating = document.getElementById('modal-rating');
     const image = document.getElementById('modal-image');
 
-    // Cambiar contenido según el producto
     if (product === 'product1') {
-        title.innerText = 'Café Brasil 250g';
-        description.innerText = 'Café de tueste medio con notas de cacao y nuez.';
+        title.innerText = 'Café Etiopía 250g';
+        description.innerText = 'Café de tueste ligero con notas florales y cítricas.';
+        grainDetails.innerText = 'Grano: Arábica';
+        roast.innerText = 'Tueste: Claro';
+        rating.innerText = 'Puntaje: ★★★★☆';
+        image.src = 'cafe_prueba.svg';
+    } else if (product === 'product2') {
+        title.innerText = 'Café México 500g';
+        description.innerText = 'Café suave con un sabor a chocolate y un toque de nuez.';
         grainDetails.innerText = 'Grano: Arábica';
         roast.innerText = 'Tueste: Medio';
         rating.innerText = 'Puntaje: ★★★★☆';
-        image.src = 'cafe prueba.svg';
-    } else if (product === 'product2') {
-        title.innerText = 'Café Brasil 500g';
-        description.innerText = 'Café 100% orgánico, ideal para los paladares más exigentes.';
+        image.src = 'cafe_prueba.svg';
+    } else if (product === 'product3') {
+        title.innerText = 'Café Sumatra 250g';
+        description.innerText = 'Café de cuerpo completo con notas terrosas y especiadas.';
         grainDetails.innerText = 'Grano: Arábica';
         roast.innerText = 'Tueste: Oscuro';
         rating.innerText = 'Puntaje: ★★★★★';
-        image.src = 'cafe prueba.svg';
+        image.src = 'cafe_prueba.svg';
+    } else if (product === 'product4') {
+        title.innerText = 'Café Perú 500g';
+        description.innerText = 'Café orgánico con un sabor suave y un final dulce.';
+        grainDetails.innerText = 'Grano: Arábica';
+        roast.innerText = 'Tueste: Medio';
+        rating.innerText = 'Puntaje: ★★★★☆';
+        image.src = 'cafe_prueba.svg';
     }
 
-    // Mostrar el modal
-    modal.style.display = 'flex';
-    setTimeout(() => modal.style.opacity = 1, 10); // Retardo para que la animación se vea bien
+    modal.style.display = 'block'; // Muestra el modal
 }
 
-// Función para cerrar el modal
 function closeModal() {
-    const modal = document.getElementById('product-modal');
-    modal.style.opacity = 0;
-    setTimeout(() => modal.style.display = 'none', 300); // Desaparece después de la animación
+    const modal = document.getElementById('modal');
+    modal.style.display = 'none'; // Oculta el modal
+}
+
+// Cierra el modal si se hace clic fuera de él
+window.onclick = function(event) {
+    const modal = document.getElementById('modal');
+    if (event.target === modal) {
+        modal.style.display = 'none';
+    }
 }
